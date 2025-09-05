@@ -185,10 +185,10 @@ def run_all_tests():
         print("=" * 60)
         
     except AssertionError as e:
-        print(f"❌ Test failed: {e}")
+        print(f"Test failed: {e}")
         return False
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
+        print(f"Unexpected error: {e}")
         return False
     
     return True
