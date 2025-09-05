@@ -253,11 +253,11 @@ Where `Z` is a standard normal random variable.
 ## File Structure
 
 ```
-Black Scholes Model/
-├── black_scholes.py      # Main implementation
-├── demo.py              # Comprehensive demo script
-├── example.py     
-└── test_black_scholes.py
+Black Scholes Model
+1. black_scholes.py      # Main implementation
+2. demo.py              # Comprehensive demo script
+3. example.py     
+4. test_black_scholes.py
 
 ```
 
