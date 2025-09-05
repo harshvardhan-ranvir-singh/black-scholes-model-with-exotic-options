@@ -260,13 +260,3 @@ Black Scholes Model
 4. test_black_scholes.py
 
 ```
-
-## References
-
-1. Black, F., & Scholes, M. (1973). The pricing of options and corporate liabilities. Journal of political economy, 81(3), 637-654.
-2. Hull, J. C. (2017). Options, futures, and other derivatives. Pearson.
-3. Wilmott, P. (2013). Paul Wilmott on quantitative finance. John Wiley & Sons.
-
-## Acknowledgments
-
-This implementation is based on the classic Black-Scholes model and extends it with modern numerical methods for comprehensive options analysis.
