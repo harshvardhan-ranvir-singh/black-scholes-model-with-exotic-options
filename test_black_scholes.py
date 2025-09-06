@@ -181,7 +181,7 @@ def run_all_tests():
         print()
         
         print("=" * 60)
-        print("ALL TESTS PASSED! ✓")
+        print("ALL TESTS PASSED!")
         print("=" * 60)
         
     except AssertionError as e:
