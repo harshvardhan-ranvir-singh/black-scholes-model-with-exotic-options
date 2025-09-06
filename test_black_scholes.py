@@ -23,7 +23,7 @@ def test_basic_pricing():
     put_call_parity = call_price - put_price - 100 + 100 * np.exp(-0.05)
     assert abs(put_call_parity) < 1e-10, f"Put-call parity failed: {put_call_parity}"
     
-    print(f"  ✓ At-the-money: Call=${call_price:.4f}, Put=${put_price:.4f}")
+    print(f"At-the-money: Call=${call_price:.4f}, Put=${put_price:.4f}")
     
     # Test case 2: In-the-money call
     bs_itm = BlackScholes(S=110, K=100, T=1, r=0.05, sigma=0.2)
@@ -33,7 +33,7 @@ def test_basic_pricing():
     assert call_itm > put_itm, "ITM call should be more valuable than ITM put"
     assert call_itm > call_price, "ITM call should be more valuable than ATM call"
     
-    print(f"  ✓ In-the-money: Call=${call_itm:.4f}, Put=${put_itm:.4f}")
+    print(f"In-the-money: Call=${call_itm:.4f}, Put=${put_itm:.4f}")
     
     # Test case 3: Out-of-the-money call
     bs_otm = BlackScholes(S=90, K=100, T=1, r=0.05, sigma=0.2)
@@ -43,9 +43,9 @@ def test_basic_pricing():
     assert call_otm < call_price, "OTM call should be less valuable than ATM call"
     assert put_otm > put_price, "OTM put should be more valuable than ATM put"
     
-    print(f"  ✓ Out-of-the-money: Call=${call_otm:.4f}, Put=${put_otm:.4f}")
+    print(f"Out-of-the-money: Call=${call_otm:.4f}, Put=${put_otm:.4f}")
     
-    print("  ✓ Basic pricing tests passed!")
+    print("Basic pricing tests passed!")
 
 def test_greeks():
     """Test Greeks calculation."""
@@ -67,11 +67,11 @@ def test_greeks():
     # Test Vega is positive
     assert greeks['vega'] > 0, f"Vega should be positive: {greeks['vega']}"
     
-    print(f"  ✓ Call Delta: {greeks['call_delta']:.4f}")
-    print(f"  ✓ Put Delta: {greeks['put_delta']:.4f}")
-    print(f"  ✓ Gamma: {greeks['gamma']:.4f}")
-    print(f"  ✓ Vega: {greeks['vega']:.4f}")
-    print("  ✓ Greeks tests passed!")
+    print(f"Call Delta: {greeks['call_delta']:.4f}")
+    print(f"Put Delta: {greeks['put_delta']:.4f}")
+    print(f"Gamma: {greeks['gamma']:.4f}")
+    print(f"Vega: {greeks['vega']:.4f}")
+    print("Greeks tests passed!")
 
 def test_monte_carlo():
     """Test Monte Carlo pricing."""
@@ -90,8 +90,8 @@ def test_monte_carlo():
     assert call_std > 0, f"Call std should be positive: {call_std}"
     assert put_std > 0, f"Put std should be positive: {put_std}"
     
-    print(f"  ✓ European Call: ${call_price:.4f} ± ${call_std:.4f}")
-    print(f"  ✓ European Put: ${put_price:.4f} ± ${put_std:.4f}")
+    print(f"European Call: ${call_price:.4f} ± ${call_std:.4f}")
+    print(f"European Put: ${put_price:.4f} ± ${put_std:.4f}")
     
     # Test exotic options
     asian_call, asian_std = mc.asian_call_price()
@@ -100,8 +100,8 @@ def test_monte_carlo():
     assert asian_call > 0, f"Asian call price should be positive: {asian_call}"
     assert barrier_call >= 0, f"Barrier call price should be non-negative: {barrier_call}"
     
-    print(f"  ✓ Asian Call: ${asian_call:.4f} ± ${asian_std:.4f}")
-    print(f"  ✓ Barrier Call: ${barrier_call:.4f} ± ${barrier_std:.4f}")
+    print(f"Asian Call: ${asian_call:.4f} ± ${asian_std:.4f}")
+    print(f"Barrier Call: ${barrier_call:.4f} ± ${barrier_std:.4f}")
     
     print("  ✓ Monte Carlo tests passed!")
 
@@ -121,9 +121,9 @@ def test_comparison():
     assert call_diff_pct < 5, f"Call difference too large: {call_diff_pct}%"
     assert put_diff_pct < 5, f"Put difference too large: {put_diff_pct}%"
     
-    print(f"  ✓ Call difference: {call_diff_pct:.2f}%")
-    print(f"  ✓ Put difference: {put_diff_pct:.2f}%")
-    print("  ✓ Comparison tests passed!")
+    print(f"Call difference: {call_diff_pct:.2f}%")
+    print(f"Put difference: {put_diff_pct:.2f}%")
+    print("Comparison tests passed!")
 
 def test_edge_cases():
     """Test edge cases."""
@@ -137,7 +137,7 @@ def test_edge_cases():
     assert call_short >= 0, f"Short maturity call should be non-negative: {call_short}"
     assert put_short >= 0, f"Short maturity put should be non-negative: {put_short}"
     
-    print(f"  ✓ Short maturity: Call=${call_short:.4f}, Put=${put_short:.4f}")
+    print(f"Short maturity: Call=${call_short:.4f}, Put=${put_short:.4f}")
     
     # Test very high volatility
     bs_high_vol = BlackScholes(S=100, K=100, T=1, r=0.05, sigma=1.0)
@@ -147,7 +147,7 @@ def test_edge_cases():
     assert call_high_vol > 0, f"High volatility call should be positive: {call_high_vol}"
     assert put_high_vol > 0, f"High volatility put should be positive: {put_high_vol}"
     
-    print(f"  ✓ High volatility: Call=${call_high_vol:.4f}, Put=${put_high_vol:.4f}")
+    print(f"High volatility: Call=${call_high_vol:.4f}, Put=${put_high_vol:.4f}")
     
     # Test zero interest rate
     bs_zero_r = BlackScholes(S=100, K=100, T=1, r=0.0, sigma=0.2)
@@ -157,9 +157,9 @@ def test_edge_cases():
     assert call_zero_r > 0, f"Zero rate call should be positive: {call_zero_r}"
     assert put_zero_r > 0, f"Zero rate put should be positive: {put_zero_r}"
     
-    print(f"  ✓ Zero interest rate: Call=${call_zero_r:.4f}, Put=${put_zero_r:.4f}")
+    print(f"Zero interest rate: Call=${call_zero_r:.4f}, Put=${put_zero_r:.4f}")
     
-    print("  ✓ Edge case tests passed!")
+    print("Edge case tests passed!")
 
 def run_all_tests():
     """Run all tests."""
