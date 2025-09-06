@@ -103,7 +103,7 @@ def test_monte_carlo():
     print(f"Asian Call: ${asian_call:.4f} ± ${asian_std:.4f}")
     print(f"Barrier Call: ${barrier_call:.4f} ± ${barrier_std:.4f}")
     
-    print("  ✓ Monte Carlo tests passed!")
+    print("Monte Carlo tests passed!")
 
 def test_comparison():
     """Test comparison between methods."""
