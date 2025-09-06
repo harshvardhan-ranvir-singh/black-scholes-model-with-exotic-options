@@ -25,7 +25,7 @@ def main():
     print(f"  Strike Price (K): ${K}")
     print(f"  Time to Maturity (T): {T} years")
     print(f"  Risk-free Rate (r): {r*100}%")
-    print(f"  Volatility (σ): {sigma*100}%")
+    print(f"  Volatility (sigma): {sigma*100}%")
     print()
     
     # 1. Black-Scholes Pricing
